@@ -6,33 +6,34 @@ require('dotenv').config();
 connectDB();
 
 const benefits = [
-    { role: 'Farmer', description: 'AI-driven advisory services improve crop management, soil health, pest, and disease control.' },
-    { role: 'Farmer', description: 'Real-time weather forecasts and soil health analysis assist in planning planting, irrigation, and harvesting schedules.' },
-    { role: 'Farmer', description: 'Direct access to buyers and entrepreneurs for selling produce at competitive prices.' },
-    { role: 'Farmer', description: 'Ability to purchase agricultural inputs (seeds, fertilizers, tools) via the e-commerce platform.' },
-    { role: 'Farmer', description: 'Community forums for learning best practices and seeking advice from peers and experts.' },
-    { role: 'Farmer', description: 'Alerts for weather changes, pest risks, and upcoming tasks to ensure optimal productivity.' },
-    { role: 'Farmer', description: 'Recommendations for eco-friendly farming methods that reduce costs and enhance yields.' },
+    { role: 'Investor', description: 'Diversified agri-investment portfolios' },
+    { role: 'Investor', description: 'Transparent ROI tracking and farm performance analytics' },
+    { role: 'Investor', description: 'Lower investment risks with AgriLync’s verification system' },
+    { role: 'Investor', description: 'Opportunities for long-term profit generation' },
+    { role: 'Investor', description: 'Impact-driven investments in sustainable farming' },
     
-    { role: 'Entrepreneur', description: 'Tools to connect with farmers, suppliers, and buyers, ensuring efficient product flow.' },
-    { role: 'Entrepreneur', description: 'Access to local and international markets to sell agricultural products.' },
-    { role: 'Entrepreneur', description: 'Integration with financial services for loans, credit, and better cash flow management.' },
-    { role: 'Entrepreneur', description: 'Data analytics for tracking yields, market trends, and supply-demand dynamics.' },
-    { role: 'Entrepreneur', description: 'Links with farmers and change agents to build partnerships and scale business operations.' },
-    { role: 'Entrepreneur', description: 'Simplified procurement of agricultural inputs and other necessities through the platform.' },
+    { role: 'Farmer', description: 'Access to funding through the FarmPartner Initiative' },
+    { role: 'Farmer', description: 'AI-driven insights for crop management, soil health, pest control, and weather forecasting' },
+    { role: 'Farmer', description: 'Direct market access to sell produce at competitive prices' },
+    { role: 'Farmer', description: 'Support for financial stability and farm expansion' },
+    { role: 'Farmer', description: 'Connection with agricultural experts and extension services' },
 
-    { role: 'Buyer', description: 'Ability to purchase fresh and high-quality agricultural products directly from farmers and entrepreneurs.' },
-    { role: 'Buyer', description: 'Competitive pricing by eliminating middlemen through direct transactions.' },
-    { role: 'Buyer', description: 'Clear information on product origin, quality, and pricing for informed purchasing decisions.' },
-    { role: 'Buyer', description: 'Access to diverse agricultural products via the platform.' },
-    { role: 'Buyer', description: 'Seamless transactions through integrated e-commerce and payment systems.' },
+    { role: 'Entrepreneur', description: 'Structured investment opportunities in agriculture without direct farm management' },
+    { role: 'Entrepreneur', description: 'Access to verified farmers with credibility checks' },
+    { role: 'Entrepreneur', description: 'Real-time farm performance monitoring' },
+    { role: 'Entrepreneur', description: 'Business networking and partnership opportunities in agribusiness' },
+    { role: 'Entrepreneur', description: 'Contribution to sustainable agriculture and food security' },
 
-    { role: 'Change Agent', description: 'Access to AI-driven insights and resources to better support and guide farmers and entrepreneurs.' },
-    { role: 'Change Agent', description: 'Ability to oversee operational areas and manage groups of farmers effectively.' },
-    { role: 'Change Agent', description: 'Tools to disseminate knowledge, conduct training sessions, and promote sustainable practices.' },
-    { role: 'Change Agent', description: 'Networking with entrepreneurs and buyers to bridge gaps and facilitate growth.' },
-    { role: 'Change Agent', description: 'Multilingual support and hyperlocal data allow agents to cater to diverse communities.' },
+    { role: 'Buyer', description: 'Direct sourcing from trusted farmers for fresh, high-quality produce' },
+    { role: 'Buyer', description: 'Price transparency and access to multiple farm suppliers' },
+    { role: 'Buyer', description: 'Bulk purchase deals with reliable delivery options' },
+    { role: 'Buyer', description: 'Traceability and food safety assurance' },
+    { role: 'Buyer', description: 'Reduced supply chain inefficiencies through smart logistics' }
 ];
+
+
+
+   
 
 (async () => {
     try {

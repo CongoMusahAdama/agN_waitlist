@@ -3,6 +3,10 @@ const router = express.Router();
 const User = require('../models/User');
 const Benefit = require('../models/Benefit');
 const { body, validationResult } = require('express-validator');
+const { clicking } = require ('../models/Clicking')
+
+//TODO: will use .env to encrypt it
+const WHATSAPP_INVITE_LINK = 'process.env.WHATSAPP_INVITE_LINK;';
 
 /**
  * @swagger
@@ -48,7 +52,7 @@ const { body, validationResult } = require('express-validator');
 router.post('/register', [
     body('name').notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Valid email is required'),
-    body('role').isIn(['Farmer', 'Entrepreneur', 'Buyer', 'Change Agent']).withMessage('Role is required'),
+    body('role').isIn(['Farmer', 'Entrepreneur', 'Buyer', 'Investor']).withMessage('Role is required'),
     body('phonenumber').isMobilePhone().withMessage('Valid phone number is required'),
     body('location').notEmpty().withMessage('Location is required'),
 ], async (req, res) => {
@@ -309,4 +313,16 @@ router.get('/admin/waitlist/stats', async (req, res) => {
     });
 });
 
+// Route to Join WhatsApp Community
+router.get('/waitlist/join-whatsapp', async (req, res) => {
+    try {
+        const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+        await ClickLog.create({ ipAddress: ip });
+        console.log(`User Click Logged: ${ip} at ${new Date().toISOString()}`);
+        res.redirect(WHATSAPP_INVITE_LINK);
+    } catch (error) {
+        console.error('Error Logging Click:', error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
 module.exports = router;
